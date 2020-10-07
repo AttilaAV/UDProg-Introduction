@@ -1,10 +1,14 @@
 #include "std_lib_facilities.h"
 
+constexpr double cm_to_m = 100;
+constexpr double in_to_m = 2.54 / 100;
+constexpr double ft_to_m = 2.54 * 12/100;
+
 double convert(double a, string unit){
-	if(unit == "m") a = a;
-	else if(unit == "cm") a = a / 100;
-	else if(unit == "in") a = a * 2.54 / 100;
-	else if(unit == "ft") a = a * 2.54 * 12/100;
+	if(unit == "m");
+	else if(unit == "cm") a /= cm_to_m;
+	else if(unit == "in") a *= in_to_m;
+	else if(unit == "ft") a *= ft_to_m;
 	else simple_error("ERROR ILLEGAL UNIT!");
 	return a;
 }
@@ -38,8 +42,9 @@ int main()
         }
 
         values.push_back(converted);
-		sort(values);
 	}
+
+	sort(values);
 
 	for(double value : values) sum += value;
 
